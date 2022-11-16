@@ -47,7 +47,7 @@ func (r *routes) enforceFilterParameter(w http.ResponseWriter, req *http.Request
 	var (
 		q               = req.URL.Query()
 		proxyLabelMatch = labels.Matcher{
-			Type:  labels.MatchEqual,
+			Type:  labels.MatchRegexp,
 			Name:  r.label,
 			Value: mustLabelValue(req.Context()),
 		}
